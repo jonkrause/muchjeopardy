@@ -5,7 +5,6 @@
       <div class="value">${{dataObj[questionID].value}}</div>
       <div class="category">{{dataObj[questionID].category}}</div>
     </div>
-
     <div v-if="loading" class="loader"></div>
     <div v-else class="clueDiv">
       <div
@@ -19,13 +18,11 @@
         @click="answerHidden = !answerHidden; questionHidden = !questionHidden"
       >{{dataObj[questionID].answer}}</div>
     </div>
-
     <div v-if="loading"></div>
     <div v-else class="footer">
       <div class="nextButton">
         <button class="btn" @click="makeNew">Random</button>
       </div>
-
       <div class="airdate">Original airdate: {{dataObj[questionID].airdate}}</div>
     </div>
   </div>
@@ -40,7 +37,7 @@ export default {
     return {
       questionHidden: false,
       answerHidden: true,
-      questionID: '',
+      questionID: "",
       loading: false,
       dataObj: {}
     };
@@ -69,7 +66,6 @@ export default {
       this.questionID = this.getRand(0, 4999);
       this.readFromRealtimeDb();
     },
-
     getRand(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -87,7 +83,6 @@ export default {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
-
 .questionContainer {
   margin: 0 auto;
   height: 100vh;
@@ -104,13 +99,11 @@ export default {
     "airdate";
   grid-gap: 0;
 }
-
 .infoDiv {
   grid-area: info;
   margin-bottom: 30px;
   /* background-color: salmon; */
 }
-
 .value {
   /* grid-area: value; */
   font-size: 6em;
@@ -118,7 +111,6 @@ export default {
   color: #f4e27c;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
-
 .category {
   /* grid-area: category; */
   font-family: "Frank Ruhl Libre", serif;
@@ -127,7 +119,6 @@ export default {
   letter-spacing: 2px;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
-
 .clueDiv {
   grid-area: question;
   font-family: "PT Serif", serif;
@@ -139,7 +130,6 @@ export default {
   cursor: pointer;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
-
 .footer {
   grid-area: airdate;
   display: flex;
@@ -149,7 +139,6 @@ export default {
   font-family: "PT Serif", serif;
   font-size: 1;
 }
-
 .btn {
   width: auto;
   margin: 0;
@@ -166,12 +155,10 @@ export default {
   opacity: 0.6;
   transition: 0.2s;
 }
-
 .btn:hover {
   opacity: 0.8;
   transition: 0.2s;
 }
-
 @media all and (max-width: 768px) {
   .value {
     font-size: 4em;
